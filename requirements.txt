@@ -1,0 +1,6 @@
+asyncio
+aiohttp
+websockets
+edge-tts
+pyaudio
+anthropic
