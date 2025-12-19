@@ -1,0 +1,22 @@
+{
+    "trees": [
+        {
+            "path": "/BarrageGrab",
+            "title": "后端、抖音代理监听",
+            "extension": ""
+        },
+        {
+            "path": "/Demos",
+            "title": "接口对接，二开、自定义",
+            "extension": ""
+        },
+        {
+            "path": "/Demos/electronapp",
+            "title": "页面渲染",
+            "extension": ""
+        }
+    ],
+    "localClass": {
+        "/Demos": true
+    }
+}

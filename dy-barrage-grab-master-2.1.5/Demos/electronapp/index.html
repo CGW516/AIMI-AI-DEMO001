@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>听歌+软件开发</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="app-title">
+        <img src="logo.png"Logo" class="app-logo">
+        <h1>DOU动起来——开源项目</h1>
+      </div>
+      <div class="connection-controls">
+        <div class="connection-status">
+          <span class="status-indicator offline"></span>
+          <span class="status-text">未连接</span>
+        </div>
+        <button id="connectBtn" class="btn btn-primary">连接</button>
+        <button id="disconnectBtn" class="btn btn-danger" disabled>断开</button>
+        <button id="clearBtn" class="btn btn-secondary">清空消息</button>
+      </div>
+    </header>
+
+    <div class="stats-panel">
+      <div class="stat-item">
+        <div class="stat-icon">👁️</div>
+        <div class="stat-value" id="totalViewers">0</div>
+        <div class="stat-label">累计观看人数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">👀</div>
+        <div class="stat-value" id="onLineViewers">0</div>
+        <div class="stat-label">在线人数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">❤️</div>
+        <div class="stat-value" id="totalLikes">0</div>
+        <div class="stat-label">总点赞数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">➕</div>
+        <div class="stat-value" id="followNew">0</div>
+        <div class="stat-label">新增关注</div>
+      </div>
+      <div class="stat-item" style="display: none;">
+        <div class="stat-icon">👨</div>
+        <div class="stat-value" id="maleViewers">0</div>
+        <div class="stat-label">男性观众</div>
+      </div>
+      <div class="stat-item" style="display: none;">
+        <div class="stat-icon">👩</div>
+        <div class="stat-value" id="femaleViewers">0</div>
+        <div class="stat-label">女性观众</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">💬</div>
+        <div class="stat-value" id="totalMessages">0</div>
+        <div class="stat-label">消息总数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🎁</div>
+        <div class="stat-value" id="giftValue">0</div>
+        <div class="stat-label">礼物价值(抖币)</div>
+      </div>
+    </div>
+
+    <div class="messages-container">
+      <div class="message-panel" id="danmakuPanel">
+        <div class="panel-header">
+          <h3>💬 弹幕消息</h3>
+          <span class="message-count" id="danmakuCount">0</span>
+        </div>
+        <div class="message-list" id="danmakuList"></div>
+      </div>
+      
+      <div class="message-panel" id="likePanel">
+        <div class="panel-header">
+          <h3>❤️ 点赞消息</h3>
+          <span class="message-count" id="likeCount">0</span>
+        </div>
+        <div class="message-list" id="likeList"></div>
+      </div>
+      
+      <div class="message-panel" id="entryPanel">
+        <div class="panel-header">
+          <h3>🚪 进入直播间</h3>
+          <span class="message-count" id="entryCount">0</span>
+        </div>
+        <div class="message-list" id="entryList"></div>
+      </div>
+      
+      <div class="message-panel" id="followPanel">
+        <div class="panel-header">
+          <h3>🔔 关注消息</h3>
+          <span class="message-count" id="followCount">0</span>
+        </div>
+        <div class="message-list" id="followList"></div>
+      </div>
+      
+      <div class="message-panel" id="giftPanel">
+        <div class="panel-header">
+          <h3>🎁 礼物消息</h3>
+          <span class="message-count" id="giftCount">0</span>
+        </div>
+        <div class="message-list" id="giftList"></div>
+      </div>
+      
+      <div class="message-panel" id="otherPanel">
+        <div class="panel-header">
+          <h3>📊 其他消息</h3>
+          <span class="message-count" id="otherCount">0</span>
+        </div>
+        <div class="message-list" id="otherList"></div>
+      </div>
+    </div>
+
+    <div id="notification" class="notification hidden">
+      <div class="notification-content">
+        <span id="notificationMessage"></span>
+        <button id="notificationClose" class="notification-close">×</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

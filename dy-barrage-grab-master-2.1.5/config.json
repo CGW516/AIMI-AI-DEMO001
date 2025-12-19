@@ -1,0 +1,4 @@
+{
+  "room_id": "你的直播间ID",
+  "websocket_port": 8080
+}

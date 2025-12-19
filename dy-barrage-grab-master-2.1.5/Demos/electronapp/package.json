@@ -1,0 +1,42 @@
+{
+  "name": "douyin-live-viewer",
+  "version": "1.0.0",
+  "description": "An Electron interface for viewing Douyin live stream messages",
+  "main": "electron-app.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "author": "流星蝴蝶没有剑",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "electron": "^36.1.0",
+    "electron-builder": "^24.10.1"
+  },
+  "build": {
+    "appId": "com.douyin.live.viewer",
+    "productName": "抖音直播消息查看器",
+    "copyright": "Copyright © 2025",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "logo.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "**/*"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+# GPT-SoVITS（本地 TTS，需要 GPU）
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+git clone https://github.com/RVC-Boss/GPT-SoVITS.git
+
+# 向量数据库（用于 RAG）
+pip install chromadb       # 轻量级向量库
+pip install faiss-cpu      # Facebook 向量检索
+
+# 自然语言处理
+pip install jieba          # 中文分词
