@@ -4,3 +4,5 @@ websockets
 edge-tts
 pyaudio
 anthropic
+fastapi
+uvicorn

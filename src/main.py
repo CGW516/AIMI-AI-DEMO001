@@ -20,6 +20,7 @@ class LiveAssistant:
         self.last_message_time = time.time()
         self.is_running = False
         self.barrage_handler = BarrageHandler(self.handle_message_async)
+        self.on_ai_response = None  # Callback for AI responses
     
     async def start(self):
         """启动系统"""
@@ -67,6 +68,9 @@ class LiveAssistant:
                 response = await self.llm_engine.generate_response(content)
                 print(f"🤖 AI 回复: {response}")
                 
+                if self.on_ai_response:
+                    await self.on_ai_response(response)
+
                 # 合成语音
                 audio = await self.tts_engine.synthesize(response)
                 
