@@ -124,12 +124,29 @@ const App = () => {
             <button
               onClick={toggleSystem}
               className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${isRunning
-                  ? 'bg-red-500 hover:bg-red-600 text-white'
-                  : 'bg-green-500 hover:bg-green-600 text-white'
+                ? 'bg-red-500 hover:bg-red-600 text-white'
+                : 'bg-green-500 hover:bg-green-600 text-white'
                 }`}
             >
               {isRunning ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
               {isRunning ? '停止系统' : '启动系统'}
+            </button>
+            <button
+              onClick={async () => {
+                try {
+                  const msgs = ['这个多少钱？', '有优惠吗？', '质量怎么样？', '包邮吗？', '发货快吗？'];
+                  const randomMsg = msgs[Math.floor(Math.random() * msgs.length)];
+                  await axios.post(`${API_BASE_URL}/debug/message`, null, {
+                    params: { content: randomMsg }
+                  });
+                } catch (e) {
+                  console.error("Failed to send debug message", e);
+                }
+              }}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-blue-500 hover:bg-blue-600 text-white transition-all"
+            >
+              <MessageSquare className="w-5 h-5" />
+              测试弹幕
             </button>
           </div>
         </div>
@@ -183,8 +200,8 @@ const App = () => {
                     <div
                       key={msg.id || index}
                       className={`p-3 rounded-lg ${msg.type === 'user'
-                          ? 'bg-blue-500/20 border-l-4 border-blue-400'
-                          : 'bg-green-500/20 border-l-4 border-green-400'
+                        ? 'bg-blue-500/20 border-l-4 border-blue-400'
+                        : 'bg-green-500/20 border-l-4 border-green-400'
                         }`}
                     >
                       <div className="flex items-center justify-between mb-1">
@@ -219,8 +236,8 @@ const App = () => {
                   <button
                     onClick={() => updateConfig({ ...config, ttsEnabled: !config.ttsEnabled })}
                     className={`w-full px-4 py-2 rounded-lg font-semibold ${config.ttsEnabled
-                        ? 'bg-green-500 text-white'
-                        : 'bg-gray-500 text-white'
+                      ? 'bg-green-500 text-white'
+                      : 'bg-gray-500 text-white'
                       }`}
                   >
                     {config.ttsEnabled ? '已启用' : '已禁用'}
@@ -231,8 +248,8 @@ const App = () => {
                   <button
                     onClick={() => updateConfig({ ...config, ragEnabled: !config.ragEnabled })}
                     className={`w-full px-4 py-2 rounded-lg font-semibold ${config.ragEnabled
-                        ? 'bg-green-500 text-white'
-                        : 'bg-gray-500 text-white'
+                      ? 'bg-green-500 text-white'
+                      : 'bg-gray-500 text-white'
                       }`}
                   >
                     {config.ragEnabled ? '已启用' : '已禁用'}

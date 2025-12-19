@@ -5,8 +5,8 @@ from typing import List
 class Config:
     """系统配置"""
     # LLM 配置
-    llm_api_url: str = "https://api.anthropic.com/v1/messages"
-    llm_model: str = "claude-sonnet-4-20250514"
+    llm_api_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    llm_model: str = "qwen3-max"
     llm_max_tokens: int = 200
     
     # TTS 配置
